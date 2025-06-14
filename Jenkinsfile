@@ -7,14 +7,14 @@ pipeline {
                 echo 'Checking out code...'
             }
         }
-        stage('Build') {
+        stage('Install dependencies') {
             steps {
-                echo 'Simulating HTML build...'
+                sh 'npm install'
             }
         }
-        stage('Deploy') {
+        stage('Run Tests') {
             steps {
-                echo 'Deployment complete!'
+                sh 'npm test'
             }
         }
     }
